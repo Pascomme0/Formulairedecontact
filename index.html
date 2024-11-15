@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        @keyframes arrow-pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .arrow-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.75rem 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-button:hover {
+            transform: scale(1.02);
+        }
+
+        .arrow-group {
+            display: flex;
+            gap: 2px;
+            font-size: clamp(1rem, 2vw, 1.75rem);
+        }
+
+        .arrow {
+            animation: arrow-pulse 1s infinite;
+        }
+
+        .arrow-left { animation-delay: 0.3s; }
+        .arrow-right { animation-delay: 0.6s; }
+
+        .main-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        .hero-overlay {
+            background-color: rgba(223, 20, 39, 0.9);
+            padding: clamp(1.5rem, 5vw, 5.625rem);
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        .hero-text {
+            font-size: clamp(1.25rem, 3vw, 2.25rem);
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding: 2rem 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper-slide {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: auto;
+            padding: 2rem;
+            width: min(300px, 90vw);
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem !important;
+            }
+
+            .benefits-list {
+                padding: 1rem !important;
+            }
+
+            .hero-overlay {
+                position: relative !important;
+                margin-top: -1px;
+            }
+        }
+
+        .content-section {
+            padding: 2rem 5rem;
+        }
+
+        .benefits-list {
+            padding: 1rem 5rem;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="relative">
+            <img src="../../../../images/image.png" alt="Frustrated entrepreneur" 
+                 class="w-full h-auto object-cover">
+            <div class="hero-overlay text-white text-center">
+                <p class="hero-text font-bold m-0">
+                    LES GRANDES IDEES MECONNUES DU GRAND PUBLIC<br>
+                    CREE PARFOIS LES PLUS GRANDES FRUSTATIONS<br>
+                    CHEZ L'ENTREPRENEUR OU LE PORTEUR DE PROJET.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section text-center bg-gray-50">
+            <div class="mb-8">
+                <h2 class="text-[#d02027] font-bold text-2xl md:text-[25px] mb-4">
+                    C'est en moyenne 25.000 entreprises qui sont créées chaque année en Côte d'Ivoire.
+                </h2>
+                <h2 class="text-[#d02027] font-bold text-2xl md:text-[25px]">
+                    Mais plus de la moitié n'arrive pas à perdurer dans le temps.
+                </h2>
+            </div>
+
+            <div class="mb-8">
+                <p class="text-gray-600 font-bold text-xl md:text-[25px]">
+                    Les nouvelles entreprises sont souvent freinées par des difficultés de financement, 
+                    mais aussi par un manque de visibilité qui limite leurs ventes.
+                </p>
+            </div>
+
+            <div class="mb-8">
+                <p class="text-gray-600 font-bold text-xl md:text-[25px]">
+                    Une chose est certaine : toute entreprise offrant des produits et services 
+                    doit s'appuyer sur une stratégie solide pour se faire connaître et attirer des clients.
+                </p>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-[#d02027] font-bold text-2xl md:text-[25px]">
+                    Nous pouvons vous aider à définir cette stratégie aujourd'hui !
+                </h2>
+            </div>
+
+            <button class="arrow-button bg-[#d02027] text-white w-full text-lg md:text-xl font-medium" onclick="redirectToForm();">
+                <div class="arrow-group">
+                    <span class="arrow">»</span>
+                    <span class="arrow arrow-left">»</span>
+                    <span class="arrow arrow-right">»</span>
+                </div>
+                Cliquez ici
+                <div class="arrow-group">
+                    <span class="arrow">«</span>
+                    <span class="arrow arrow-left">«</span>
+                    <span class="arrow arrow-right">«</span>
+                </div>
+            </button>
+        </div>
+
+        <div class="benefits-list bg-gray-50">
+            <h1 class="text-center text-2xl md:text-[34px] font-bold text-gray-600 mb-8">
+                En cliquant vous aurez droit à un appel avec nos experts après quoi vous bénéficierez de :
+            </h1>
+            <ul class="list-disc text-[#d02027] text-lg md:text-xl font-medium pl-4">
+                <li>d'une stratégie conçue sur mesure pour votre business pour vous permettre d'être visible et vendre</li>
+                <li>d'un plan de communication cohérent qui augmentera significativement votre visibilité et suscitera beaucoup d'engagement autour de votre activité.</li>
+                <li>d'une stratégie continue pour assurer votre présence dans le digital.</li>
+                <li>d'actions concrètes pour influencer le comportement d'achat de votre clientèle.</li>
+                <li>d'une méthode pour promouvoir vos produits et services de manière efficace.</li>
+                <li>d'outil de conversation de client</li>
+                <li>d'un site internet performant pour accroître votre activité et vendre</li>
+            </ul>
+
+            <button class="arrow-button bg-[#d02027] text-white mt-8 text-lg md:text-xl font-medium" onclick="redirectToForm();">
+                <div class="arrow-group">
+                    <span class="arrow">»</span>
+                    <span class="arrow arrow-left">»</span>
+                    <span class="arrow arrow-right">»</span>
+                </div>
+                Cliquez ici
+                <div class="arrow-group">
+                    <span class="arrow">«</span>
+                    <span class="arrow arrow-left">«</span>
+                    <span class="arrow arrow-right">«</span>
+                </div>
+            </button>
+        </div>
+        <div class="bg-[#0048db] py-12 my-16">
+            <h2 class="text-center text-white text-2xl md:text-4xl font-bold mb-8">
+                Témoignages de nos clients
+            </h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Grâce à leur accompagnement, notre visibilité a considérablement augmenté."
+                        </p>
+                        <strong class="block">Marie Koné</strong>
+                        <span>CEO, TechInnov</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Leur stratégie de communication a transformé notre entreprise."
+                        </p>
+                        <strong class="block">Amadou Diallo</strong>
+                        <span>Fondateur, GreenAgri</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Un accompagnement professionnel qui a boosté nos ventes en ligne."
+                        </p>
+                        <strong class="block">Fatou Touré</strong>
+                        <span>Directrice Marketing, FashionPlus</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Un accompagnement professionnel qui a boosté nos ventes en ligne."
+                        </p>
+                        <strong class="block">Fatou Touré</strong>
+                        <span>Directrice Marketing, FashionPlus</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Un accompagnement professionnel qui a boosté nos ventes en ligne."
+                        </p>
+                        <strong class="block">Fatou Touré</strong>
+                        <span>Directrice Marketing, FashionPlus</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Un accompagnement professionnel qui a boosté nos ventes en ligne."
+                        </p>
+                        <strong class="block">Fatou Touré</strong>
+                        <span>Directrice Marketing, FashionPlus</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="italic mb-4 text-center">
+                            "Un accompagnement professionnel qui a boosté nos ventes en ligne."
+                        </p>
+                        <strong class="block">Fatou Touré</strong>
+                        <span>Directrice Marketing, FashionPlus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-section bg-gray-50">
+            <p class="text-center text-gray-600 text-xl md:text-2xl font-semibold mb-4">
+                Faites comme eux, faites-vous accompagner.
+            </p>
+            <button class="arrow-button bg-[#d02027] text-white text-lg md:text-xl font-medium" onclick="redirectToForm();">
+                <div class="arrow-group">
+                    <span class="arrow">»</span>
+                    <span class="arrow arrow-left">»</span>
+                    <span class="arrow arrow-right">»</span>
+                </div>
+                Cliquez ici
+                <div class="arrow-group">
+                    <span class="arrow">«</span>
+                    <span class="arrow arrow-left">«</span>
+                    <span class="arrow arrow-right">«</span>
+                </div>
+            </button>
+        </div>
+
+        <div class="content-section bg-gray-50">
+            <p class="text-center text-gray-600 text-xl md:text-2xl font-semibold mb-4">
+                Ne commettez pas l'erreur de négliger la puissance de la communication 
+                et la publicité qui rendra visible votre business ou votre entreprise.
+            </p>
+            <button class="arrow-button bg-[#d02027] text-white text-lg md:text-xl font-medium" onclick="redirectToForm();">
+                <div class="arrow-group">
+                    <span class="arrow">»</span>
+                    <span class="arrow arrow-left">»</span>
+                    <span class="arrow arrow-right">»</span>
+                </div>
+                Cliquez ici pour bénéficier
+                <div class="arrow-group">
+                    <span class="arrow">«</span>
+                    <span class="arrow arrow-left">«</span>
+                    <span class="arrow arrow-right">«</span>
+                </div>
+            </button>
+        </div>
+
+       
+    </div>
+
+    <footer class="py-8">
+        <p class="text-center text-base">
+            @copyright Agence Moses Art 2024
+        </p>
+    </footer>
+
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            initialSlide: 1,
+            coverflowEffect: {
+                rotate: 30,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 30
+                }
+            }
+        });
+
+        function redirectToForm() {
+            const formUrl = 'form.html';
+            // Vérification de l'URL pour éviter les redirections malveillantes
+            if (formUrl) {
+                window.location.href = formUrl;
+            }
+        }
+    </script>
+</body>
+</html>
