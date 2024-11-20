@@ -72,7 +72,13 @@
                 return false;
             }
 
-            return true; // Si toutes les vérifications passent
+            // Alerte de confirmation
+            alert("Votre formulaire a été envoyé avec succès !");
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000); 
+
+            return true; 
         }
     </script>
 </body>
