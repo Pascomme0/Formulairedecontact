@@ -9,77 +9,166 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <title>Boostez votre visibilité</title>
     <style>
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(100px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+
+        [data-animate] { opacity: 0; }
+
+        /* Styles existants */
         @keyframes arrow-pulse {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
 
-        .arrow-button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0.75rem 1.25rem; transition: all 0.3s ease; }
+        .arrow-button { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            width: 100%; 
+            padding: 0.75rem 1.25rem; 
+            transition: all 0.3s ease; 
+        }
         .arrow-button:hover { transform: scale(1.02); }
-        .arrow-group { display: flex; gap: 2px; font-size: clamp(1rem, 2vw, 1.75rem); }
+        .arrow-group { 
+            display: flex; 
+            gap: 2px; 
+            font-size: clamp(1rem, 2vw, 1.75rem); 
+        }
         .arrow { animation: arrow-pulse 1s infinite; }
         .arrow-left { animation-delay: 0.3s; }
         .arrow-right { animation-delay: 0.6s; }
-        .main-container { max-width: 1440px; margin: 0 auto; overflow-x: hidden; }
-        .hero-overlay { background-color: rgba(223, 20, 39, 0.9); padding: clamp(1.5rem, 5vw, 5.625rem); position: absolute; right: 0; left: 0; bottom: 0; }
-        .hero-text { font-size: clamp(1.25rem, 3vw, 2.25rem); }
-        .swiper-container { width: 100%; padding: 2rem 1rem; overflow: hidden; position: relative; }
-        .swiper-slide { background: white; border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); height: auto; padding: 2rem; width: min(300px, 90vw); margin: 0 auto; }
-        @media (max-width: 768px) {
-            .content-section, .benefits-list { padding: 1rem !important; }
-            .hero-overlay { position: relative !important; margin-top: -1px; }
+        .main-container { 
+            max-width: 1440px; 
+            margin: 0 auto; 
+            overflow-x: hidden; 
         }
-        .content-section { padding: 2rem 5rem; }
-        .benefits-list { padding: 1rem 5rem; }
-        .benefits-list li { margin-bottom: 0.75rem; line-height: 1.5; font-size: clamp(1rem, 1.5vw, 1.25rem); }
+        .hero-overlay { 
+            background-color: rgba(223, 20, 39, 0.9); 
+            padding: clamp(1.5rem, 5vw, 5.625rem); 
+            position: absolute; 
+            right: 0; 
+            left: 0; 
+            bottom: 0; 
+        }
+        .hero-text { 
+            font-size: clamp(1.25rem, 3vw, 2.25rem); 
+        }
+        .swiper-container { 
+            width: 100%; 
+            padding: 2rem 1rem; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .swiper-slide { 
+            background: white; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            height: auto; 
+            padding: 2rem; 
+            width: min(300px, 90vw); 
+            margin: 0 auto; 
+        }
+        @media (max-width: 768px) {
+            .content-section, .benefits-list { 
+                padding: 1rem !important; 
+            }
+            .hero-overlay { 
+                position: relative !important; 
+                margin-top: -1px; 
+            }
+        }
+        .content-section { 
+            padding: 2rem 5rem; 
+        }
+        .benefits-list { 
+            padding: 1rem 5rem; 
+        }
+        .benefits-list li { 
+            margin-bottom: 0.75rem; 
+            line-height: 1.5; 
+            font-size: clamp(1rem, 1.5vw, 1.25rem); 
+        }
     </style>
 </head>
 
 <body class="font-sans">
     <div class="main-container">
+        <!-- Section Hero -->
         <div class="relative">
-            <img src="/images/image1.jpg" alt="Entrepreneur frustré" class="w-full h-auto object-cover">
-            <div class="absolute left-8  bottom-24 sm:left-28 sm:bottom-72">
-                <h1 class="text-2xl sm:text-4xl  sm:pb-12 font-bold text-gray-500 md:text-7xl">Soyez une <br> entreprise <br> <span class="text-red-600">visible.</span></h1>
+            <img src="/images/image1.jpg" alt="Entrepreneur " class="w-full h-auto object-cover" data-animate="fadeIn">
+            <div class="absolute left-8 bottom-24 sm:left-28 sm:bottom-72" data-animate="fadeInUp">
+                <h1 class="text-2xl sm:text-4xl sm:pb-12 font-bold text-gray-500 md:text-7xl">
+                    Soyez une <br> entreprise <br> <span class="text-red-600">visible.</span>
+                </h1>
             </div>
         </div>
 
+        <!-- Section Contenu -->
         <div class="content-section flex flex-col md:flex-row text-center bg-gray-50 items-center my-16">
-            <div class="mb-8 md:pr-8">
+            <div class="mb-8 md:pr-8" data-animate="slideInLeft">
                 <p class="text-gray-600 font-medium text-sm md:text-lg text-left">
                     Les nouvelles entreprises sont souvent freinées par des difficultés de financement,
                     mais aussi par un manque de visibilité qui limite leurs ventes.
                 </p>
             </div>
-            <div class="mb-8">
+            <div class="mb-8" data-animate="slideInRight">
                 <img src="../../images/image3.jpg" alt="Image illustrative" class="w-full h-auto">
             </div>
         </div>
 
+        <!-- Section Stratégie -->
         <div class="relative">
-            <div class="relative top-20 mx-auto w-full max-w-4xl">
+            <div class="relative z-10 top-20 mx-auto w-full max-w-4xl"   data-animate="fadeInUp">
                 <img src="../../images/image2.jpg" alt="Description de l'image" class="object-cover w-full h-[400px] shadow-lg">
                 <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-                    <p class="text-white text-center text-2xl md:text-4xl font-semibold">Il te faut une stratégie gagnante <br> pour booster ta visibilité et <br> ton chiffre d’affaire</p>
+                    <p  data-animate="fadeInUp" class="text-white text-center text-2xl md:text-4xl font-semibold" >Il te faut une stratégie gagnante <br> pour booster ta visibilité et <br> ton chiffre d’affaire</p>
                 </div>
             </div>
 
-            <div class="bg-yellow-400 h-[500px] px-6 flex items-center justify-center">
-                <p class="text-black text-center font-normal text-xl md:text-3xl">
+            <div class="bg-yellow-400 h-[500px] px-6 flex items-center justify-center" data-animate="fadeIn">
+                <p  data-animate="fadeInUp" class="text-black text-center font-normal text-xl md:text-3xl">
                     Réserve un appel diagnostic avec <br>
                     nos experts, pour bénéficier de la stratégie <br>
                     qui s'adapte à ton business
                 </p>
             </div>
 
-            <div class="relative bottom-24 w-full max-w-3xl mx-auto px-4 py-8">
+            <!-- Formulaire Principal -->
+            <div class="relative bottom-24 w-full max-w-3xl mx-auto px-4 py-8"  data-animate="fadeInUp">
                 <form action="traitement.php" method="POST" class="shadow-lg bg-gray-100 p-8 rounded-lg space-y-6" onsubmit="return validateForm();">
                     <div class="space-y-6">
-                        <input type="text" name="nom_prenoms" placeholder="Nom & prénoms" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
-                        <input type="email" name="email" placeholder="Adresse email" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
-                        <input type="tel" name="contact" placeholder="Contact" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
-                        <input type="text" name="domaine_activite" placeholder="Domaine d'activité" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="text" name="nom_prenoms" placeholder="Nom & prénoms" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="email" name="email" placeholder="Adresse email" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="tel" name="contact" placeholder="Contact" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="text" name="domaine_activite" placeholder="Domaine d'activité" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
                     </div>
                     <div class="pt-4">
                         <button type="submit" class="px-8 py-2 bg-yellow-300 hover:bg-yellow-400 transition-colors rounded-md text-black font-medium">Envoyer</button>
@@ -88,21 +177,22 @@
             </div>
         </div>
 
-        <div class="py-12">
+        <!-- Section Statistiques -->
+        <div class="py-12" data-animate="fadeIn">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold text-gray-700 mb-8">
+                <h2 class="text-4xl font-bold text-gray-700 mb-8" data-animate="fadeInUp"  >
                     C'EST <span class="text-[#0F8383]">+50</span> BUSINESS BOOSTÉS <br> EN 2024, DANS <span class="text-[#0F8383]">+10</span> <br>SECTEURS D'ACTIVITÉS
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-white p-6 rounded-lg shadow-lg"  data-animate="fadeInUp" data-animate="fadeIn" data-delay="0.4">
                         <p class="text-3xl pb-4 font-bold text-red-600">+50</p>
                         <p class="text-gray-600 text-lg font-medium">Business Boostés</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-white p-6 rounded-lg shadow-lg"  data-animate="fadeInUp" data-animate="fadeIn" data-delay="0.7">
                         <p class="text-3xl pb-4 font-bold text-red-600">+10</p>
                         <p class="text-gray-600 font-medium text-lg">Secteurs d'Activités</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="bg-white p-6 rounded-lg shadow-lg"  data-animate="fadeInUp" data-animate="fadeIn" data-delay="1 ">
                         <p class="text-3xl pb-4 font-bold text-red-600">100%</p>
                         <p class="text-gray-600 font-medium text-lg">Satisfaction Clients</p>
                     </div>
@@ -110,7 +200,8 @@
             </div>
         </div>
 
-        <div class="bg-[#0F8383] py-12 my-16">
+        <!-- Section Témoignages -->
+        <div class="bg-[#0F8383] py-12 my-16" data-animate="fadeIn">
             <h2 class="text-center text-white text-2xl md:text-4xl font-bold mb-8">Ce qu'ils disent de nous</h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -166,18 +257,23 @@
             </div>
         </div>
 
+        <!-- Section Finale -->
         <div class="content-section flex flex-col md:flex-row text-center items-start mt-32">
-            <div class="mb-24 pt-4 pl-8 text-left sm:pb-4 w-full md:w-[70%]">
-                <p class="text-black font-bold  text-2xl md:text-5xl text-left">Faites <br> comme eux</p><br>
+            <div class="mb-24 pt-4 pl-8 text-left sm:pb-4 w-full md:w-[70%]" data-animate="slideInLeft">
+                <p class="text-black font-bold text-2xl md:text-5xl text-left">Faites <br> comme eux</p><br>
                 <span class="text-left text-xl md:text-2xl md:pb-8 font-medium">Réservez votre appel <br> diagnostic</span>
             </div>
-            <div class="relative bottom-24 w-full max-w-3xl mx-auto px-4 py-8">
+            <div class="relative bottom-24 w-full max-w-3xl mx-auto px-4 py-8" data-animate="slideInRight">
                 <form action="traitement.php" method="POST" class="bg-gray-100 p-8 rounded-lg space-y-6" onsubmit="return validateForm();">
                     <div class="space-y-6">
-                        <input type="text" name="nom_prenoms" placeholder="Nom & prénoms" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
-                        <input type="email" name="email" placeholder="Adresse email" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
-                        <input type="tel" name="contact" placeholder="Contact" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
-                        <input type="text" name="domaine_activite" placeholder="Domaine d'activité" class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="text" name="nom_prenoms" placeholder="Nom & prénoms" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="email" name="email" placeholder="Adresse email" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="tel" name="contact" placeholder="Contact" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
+                        <input type="text" name="domaine_activite" placeholder="Domaine d'activité" 
+                               class="w-full p-3 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-500 transition-all duration-300 transform focus:scale-105" required>
                     </div>
                     <div class="pt-4">
                         <button type="submit" class="px-8 py-2 bg-yellow-300 hover:bg-yellow-400 transition-colors rounded-md text-black font-medium">Envoyer</button>
@@ -188,36 +284,60 @@
     </div>
 
     <script>
+        // Gestion des animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const animationType = element.dataset.animate;
+                    const delay = element.dataset.delay || 0;
+                    
+                    setTimeout(() => {
+                        element.classList.add(`animate-${animationType}`, 'opacity-100');
+                    }, delay * 1000);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('[data-animate]').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Configuration Swiper
         const swiper = new Swiper('.swiper-container', {
-            effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,
-            slidesPerView: 'auto',
+            slidesPerView: 3, // Affiche trois slides à la fois
+            spaceBetween: 40, // Espace entre les slides
             initialSlide: 1,
             coverflowEffect: {
-                rotate: 30,
+                rotate: 0, // Pas de rotation
                 stretch: 0,
                 depth: 100,
                 modifier: 1,
-                slideShadows: true,
             },
             autoplay: {
-                delay: 4000,
+                delay: 6000,
                 disableOnInteraction: false,
             },
             loop: true,
             breakpoints: {
                 320: {
-                    slidesPerView: 1,
+                    slidesPerView: 1, // Sur les petits écrans, affiche une seule slide
                     spaceBetween: 20
                 },
                 768: {
-                    slidesPerView: 'auto',
+                    slidesPerView: 2, // Sur les écrans moyens, affiche deux slides
                     spaceBetween: 30
+                },
+                1024: {
+                    slidesPerView: 3, // Sur les grands écrans, affiche trois slides
+                    spaceBetween: 40
                 }
             }
         });
 
+        // Validation du formulaire
         function validateForm() {
             const nomPrenoms = document.querySelector('input[name="nom_prenoms"]').value;
             const email = document.querySelector('input[name="email"]').value;
@@ -255,5 +375,4 @@
         }
     </script>
 </body>
-
 </html>
