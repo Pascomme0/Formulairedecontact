@@ -1,4 +1,14 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+<?php
 $servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
@@ -24,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         echo "Données enregistrées avec succès.";
- 
+        sleep(2);
         header("Location: index.html");
         exit(); 
     } else {
@@ -36,3 +46,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+</body>
+</html>
